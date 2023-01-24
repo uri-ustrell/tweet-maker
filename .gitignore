@@ -1,0 +1,18 @@
+# VScode
+jsconfig.json
+global.d.ts
+
+# project
+.env
+/dist
+
+# yarn
+.yarn/
+/node_modules/
+yarn-error.log
+
+# OS X
+.DS_Store
+
+# caches
+.eslintcache
