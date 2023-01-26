@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "Tweet Maker",
+    "version": "1.0",
+    "description": "Chrome Extension to let AI write tweets for you",
+    "action": {
+        "default_icon": "assets/icons/twt-write.png",
+        "default_title": "Tweet Maker",
+        "default_popup": "index.html"
+    }
+}

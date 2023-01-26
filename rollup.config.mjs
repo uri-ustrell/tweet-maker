@@ -56,10 +56,18 @@ export default {
     copy({
       targets: [
         {
-          src: 'src/index.html',
+          src: 'statics/index.html',
           dest: 'dist',
           transform: (contents, filename) =>
             contents.toString().replace('__SCRIPT__', mainJsFile),
+        },
+        {
+          src: 'statics/manifest.json',
+          dest: 'dist',
+        },
+        {
+          src: 'statics/assets',
+          dest: 'dist',
         },
       ],
     }),
