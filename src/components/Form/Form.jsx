@@ -1,3 +1,5 @@
+import useGenerate from 'hooks/useGenerate';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { FORM_ID, INPUT_ID } from 'utils/constants';
 import labels from 'utils/constants/labels';
@@ -8,10 +10,15 @@ function Form() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { error, generateTweets, isGenerating, tweets } = useGenerate();
+
+  // testing serverless functions:
+  useEffect(() => {
+    if (tweets) console.log(tweets);
+  }, [tweets]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} id={FORM_ID}>
+    <form onSubmit={handleSubmit(generateTweets)} id={FORM_ID}>
       <label htmlFor={INPUT_ID}>{labels.form.input.label}</label>
       <input
         id={INPUT_ID}
