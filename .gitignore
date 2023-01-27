@@ -7,7 +7,6 @@ global.d.ts
 /dist
 
 # yarn
-.yarnrc.yml
 .yarn/*
 /node_modules/
 yarn-error.log
