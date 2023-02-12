@@ -1,4 +1,9 @@
 /* eslint-disable global-require */
-if (process.env.NODE_ENV === 'development' && process.env.MSW !== 'disable') {
-  require('./browser');
+const isDevelopmentEnv = process.env.NODE_ENV === 'development';
+const isTestEnv = process.env.NODE_ENV === 'test';
+
+if (isDevelopmentEnv && process.env.MSW !== 'disable') {
+  module.exports = require('./browser');
+} else if (isTestEnv) {
+  // module.exports = require('./server');
 }

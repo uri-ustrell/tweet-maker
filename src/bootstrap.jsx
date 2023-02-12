@@ -1,0 +1,2 @@
+import '../msw';
+import './index';
