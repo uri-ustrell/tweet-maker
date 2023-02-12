@@ -5,6 +5,7 @@ global.d.ts
 # project
 .env
 /dist
+/public/main.js
 
 # yarn
 .yarn/*
