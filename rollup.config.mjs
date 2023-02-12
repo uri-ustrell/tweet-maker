@@ -18,11 +18,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 const isMSW = process.env.MSW !== 'disable';
 const hash = crypto.randomUUID();
 const mainJsFile = isProduction ? `main-${hash}.js` : 'main.js';
+const publishDir = isProduction ? 'dist/' : 'public/';
+const entryPoint = `src/${isProduction ? 'index' : 'bootstrap'}.jsx`;
 
 export default {
-  input: 'src/index.jsx',
+  input: entryPoint,
   output: {
-    dir: 'dist/',
+    dir: publishDir,
     format: 'iife',
     name: 'tweetMaker',
     sourcemap: isProduction ? true : 'inline',
@@ -65,17 +67,17 @@ export default {
     babel(),
     copy({
       targets: [
-        {
+        isProduction && {
           src: 'public/*',
-          dest: 'dist/',
+          dest: publishDir,
         },
         {
           src: 'public/index.html',
-          dest: 'dist/',
+          dest: publishDir,
           transform: (contents, filename) =>
-            contents.toString().replace('__SCRIPT__', mainJsFile),
+            contents.toString().replace('main.js', mainJsFile),
         },
-      ],
+      ].filter((target) => !!target),
     }),
     watch({ assets: ['src'] }),
   ],
