@@ -74,7 +74,7 @@ export default {
         {
           src: 'public/index.html',
           dest: publishDir,
-          transform: (contents, filename) =>
+          transform: (contents /* , filename */) =>
             contents.toString().replace('main.js', mainJsFile),
         },
       ].filter((target) => !!target),
