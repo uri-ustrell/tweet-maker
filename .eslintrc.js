@@ -36,7 +36,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
   },
   settings: {
-    'import/resolver': {      alias: {
+    'import/resolver': {
+      alias: {
         map: [
           ['components', './src/components'],
           ['context', './src/context'],

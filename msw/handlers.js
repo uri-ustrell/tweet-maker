@@ -1,8 +1,8 @@
 import { rest } from 'msw';
 import { TWEET_GENERATE_ENDPOINT } from 'utils/constants';
 
-export const handlers = [
-  rest.post('/' + TWEET_GENERATE_ENDPOINT, (req, res, ctx) => {
+const handlers = [
+  rest.get(`/${TWEET_GENERATE_ENDPOINT}`, (req, res, ctx) => {
     return res(
       ctx.json({
         tweets:
@@ -12,3 +12,5 @@ export const handlers = [
     );
   }),
 ];
+
+export default handlers;
