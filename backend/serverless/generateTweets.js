@@ -1,9 +1,12 @@
-exports.handler = async function (event, context) {
+const generateTweets = async (event) => {
+  const { rawQuery: subject } = event;
   return {
     statusCode: 200,
     body: JSON.stringify({
       message: 'Hello World',
-      handlerParams: { event, context },
+      subject,
     }),
   };
 };
+
+exports.handler = generateTweets;
