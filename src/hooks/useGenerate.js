@@ -7,7 +7,7 @@ const useGenerate = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [subject, setSubject] = useState(null);
   const { response, error, fetchData } = useFetch(TWEET_GENERATE_ENDPOINT, {
-    subject: JSON.stringify(subject),
+    subject,
   });
 
   const generateTweets = (submit) => {

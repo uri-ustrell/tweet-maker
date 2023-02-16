@@ -1,5 +1,6 @@
 const generateTweets = async (event) => {
-  const subject = new URLSearchParams(event.rawQuery).get('subject');
+  const query = new URLSearchParams(event.rawQuery).get('subject');
+  const subject = decodeURIComponent(query);
 
   return {
     statusCode: 200,
