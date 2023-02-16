@@ -1,5 +1,6 @@
 const generateTweets = async (event) => {
-  const { rawQuery: subject } = event;
+  const subject = new URLSearchParams(event.rawQuery).get('subject');
+
   return {
     statusCode: 200,
     body: JSON.stringify({

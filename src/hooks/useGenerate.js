@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TWEET_GENERATE_ENDPOINT } from 'utils/constants';
+import { INPUT_ID, TWEET_GENERATE_ENDPOINT } from 'utils/constants';
 
 import useFetch from './useFetch';
 
@@ -10,9 +10,9 @@ const useGenerate = () => {
     subject: JSON.stringify(subject),
   });
 
-  const generateTweets = (about) => {
+  const generateTweets = (submit) => {
     setIsGenerating(true);
-    setSubject(about);
+    setSubject(submit[INPUT_ID]);
   };
 
   useEffect(() => {

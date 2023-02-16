@@ -7,7 +7,7 @@ const handlers = [
       ctx.json({
         tweets:
           'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
-        requestPayload: req.json(),
+        request: req,
       })
     );
   }),
