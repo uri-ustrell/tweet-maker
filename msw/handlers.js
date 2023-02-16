@@ -2,7 +2,7 @@ import { rest } from 'msw';
 import { TWEET_GENERATE_ENDPOINT } from 'utils/constants';
 
 const handlers = [
-  rest.get(`/${TWEET_GENERATE_ENDPOINT}`, (req, res, ctx) => {
+  rest.get(TWEET_GENERATE_ENDPOINT, (req, res, ctx) => {
     return res(
       ctx.json({
         tweets:
