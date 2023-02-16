@@ -29,15 +29,14 @@ const useFetch = (
   };
 
   const fetchData = async () => {
-    const result = await window.fetch(url.href, config);
+    const result = await window.fetch(url, config);
 
     if (result.ok) {
-      const resultAsText = await result.text();
-
       try {
-        const restultAsJson = JSON.parse(resultAsText);
+        const restultAsJson = await result.json();
         return setResponse(restultAsJson);
       } catch (e) {
+        const resultAsText = await result.text();
         return setResponse(resultAsText);
       }
     }
